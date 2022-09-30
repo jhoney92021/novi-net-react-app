@@ -48,7 +48,7 @@ export class MemberTypes extends Component {
   }
 
   async populateWeatherData() {
-    const response = await fetch('member');
+    const response = await fetch('memberTypes');
     const data = await response.json();
 
     const thisState = this.state;

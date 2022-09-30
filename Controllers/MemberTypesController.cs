@@ -7,13 +7,13 @@ namespace novi_ams.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class MemberController : ControllerBase
+public class MemberTypesController : ControllerBase
 {
     private readonly HttpClient _client;
 
-    private readonly ILogger<MemberController> _logger;
+    private readonly ILogger<MemberTypesController> _logger;
 
-    public MemberController(ILogger<MemberController> logger)
+    public MemberTypesController(ILogger<MemberTypesController> logger)
     {
         _logger = logger;
         _client = new HttpClient();
