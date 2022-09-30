@@ -5,14 +5,14 @@ export class MemberTypes extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { memberTypes: [], loading: true };
+    this.state = { memberTypesResponse: [], loading: true };
   }
 
   componentDidMount() {
     this.populateWeatherData();
   }
 
-  static renderMembersTable(memberTypes) {
+  static renderMembersTable(memberTypesResponse) {
     return (
       <table className='table table-striped' aria-labelledby="tabelLabel">
         <thead>
@@ -22,10 +22,10 @@ export class MemberTypes extends Component {
           </tr>
         </thead>
         <tbody>
-          {memberTypes.results.map(forecast =>
+          {memberTypesResponse.results.map(forecast =>
             <tr key={forecast.name}>
               <td>{forecast.name}</td>
-              <td>{forecast.description}</td>              
+              <td dangerouslySetInnerHTML={ { __html: forecast.description } } ></td>                            
             </tr>
           )}
         </tbody>
@@ -36,13 +36,13 @@ export class MemberTypes extends Component {
   render() {
     let contents = this.state.loading
       ? <p><em>Loading...</em></p>
-      : MemberTypes.renderMembersTable(this.state.memberTypes);
+      : MemberTypes.renderMembersTable(this.state.memberTypesResponse);
 
     return (
       <div>
         <h1 id="tabelLabel" >Member types</h1>
         <p>This component demonstrates fetching data from the novi-member-type.</p>
-        {contents}
+        <div>{contents}</div>
       </div>
     );
   }
@@ -56,7 +56,7 @@ export class MemberTypes extends Component {
     console.log("this is the state")
     console.log(thisState)
     
-    this.setState({ memberTypes: data, loading: false });
+    this.setState({ memberTypesResponse: data, loading: false });
     
     console.log(this.state)
   }

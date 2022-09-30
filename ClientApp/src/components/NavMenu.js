@@ -31,15 +31,9 @@ export class NavMenu extends Component {
             <ul className="navbar-nav flex-grow">
               <NavItem>
                 <NavLink tag={Link} className="text-dark" to="/">Home</NavLink>
-              </NavItem>
+              </NavItem>                            
               <NavItem>
-                <NavLink tag={Link} className="text-dark" to="/counter">Counter</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink tag={Link} className="text-dark" to="/fetch-data">Fetch data</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink tag={Link} className="text-dark" to="/fetch-member-types">Fetch memeber types</NavLink>
+                <NavLink tag={Link} className="text-dark" to="/fetch-member-types">Association Member Types</NavLink>
               </NavItem>
             </ul>
           </Collapse>

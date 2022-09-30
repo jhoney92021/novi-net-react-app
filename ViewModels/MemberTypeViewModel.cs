@@ -1,3 +1,5 @@
+
+namespace novi_ams.ViewModels;
 /*
     "TotalCount": 2,
     "Results": [
@@ -16,11 +18,11 @@
     ]
 */
 
-public class MemberTypeResponse
-{
-    public int TotalCount {get;set;}
-    public List<MemberTypeViewModel> Results {get;set;} = new List<MemberTypeViewModel>(){new MemberTypeViewModel{Name = "failed to serialize"}};
-}
+// public class MemberTypeResponse
+// {
+//     public int TotalCount {get;set;}
+//     public List<MemberTypeViewModel> Results {get;set;} = new List<MemberTypeViewModel>(){new MemberTypeViewModel{Name = "failed to serialize"}};
+// }
 
 public class MemberTypeViewModel
 {
