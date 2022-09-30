@@ -9,10 +9,10 @@ export class MemberTypes extends Component {
   }
 
   componentDidMount() {
-    this.populateWeatherData();
+    this.populateMemberTypes();
   }
 
-  static renderMembersTable(memberTypesResponse) {
+  static renderMemberTypesTable(memberTypesResponse) {
     return (
       <table className='table table-striped' aria-labelledby="tabelLabel">
         <thead>
@@ -36,7 +36,7 @@ export class MemberTypes extends Component {
   render() {
     let contents = this.state.loading
       ? <p><em>Loading...</em></p>
-      : MemberTypes.renderMembersTable(this.state.memberTypesResponse);
+      : MemberTypes.renderMemberTypesTable(this.state.memberTypesResponse);
 
     return (
       <div>
@@ -47,7 +47,7 @@ export class MemberTypes extends Component {
     );
   }
 
-  async populateWeatherData() {
+  async populateMemberTypes() {
     const response = await fetch('memberTypes');
     const data = await response.json();
 
