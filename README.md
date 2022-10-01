@@ -4,6 +4,8 @@
 - feat
     - a new feature
     - commit end would say Implements <ticket-name-if-applicable>
+- model
+    - making new model/data types
 - fix
     - a code fix
     - commit end would say Fixes <ticket-name-if-applicable>
