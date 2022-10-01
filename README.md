@@ -22,6 +22,8 @@
 - doc/s
     - adding README || inline code documentation only
     - commit end would say Documents <ticket-name-if-applicable> and\or comments
+- lint
+    - satisying linter errors/warnings
 
 
 ### api connection ###
