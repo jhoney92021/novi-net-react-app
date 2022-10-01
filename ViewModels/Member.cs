@@ -111,11 +111,11 @@ namespace novi_ams.ViewModels;
 public class Member
 {
     public Guid UniqueID {get;set;}
-    public string Name {get;set;}
+    public string Name {get;set;} = "default";
     public Guid ParentCustomerUniqueID {get;set;}
-    public string ParentMemberName {get;set;}
-    public string FirstName {get;set;}
-    public string LastName {get;set;}
+    public string ParentMemberName {get;set;} = "default";
+    public string FirstName {get;set;} = "default";
+    public string LastName {get;set;} = "default";
 
 
     public bool Active {get;set;}
