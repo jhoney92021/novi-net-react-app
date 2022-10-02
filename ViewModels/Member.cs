@@ -120,7 +120,7 @@ public class Member
     [MaxLength(100)]
     public string Name {get;set;} = "Also known as DisplayName";
     [Required]
-    public Guid ParentCustomerUniqueID {get;set;}
+    public Guid? ParentCustomerUniqueID {get;set;}
     public string ParentMemberName {get;set;} = "not set";
     [Required]
     [MaxLength(100)]
@@ -137,11 +137,11 @@ public class Member
 
     /* details */
     public bool Active {get;set;}
-    public DateTime OriginalJoinDate {get;set;}
-    public DateTime MemberSince {get;set;}
-    public DateTime MembershipExpires {get;set;}
-    public string MemberStatus {get;} = "not set";
-    public string MemberSubStatus {get;} = "not set";
+    public DateTime? OriginalJoinDate {get;set;}
+    public DateTime? MemberSince {get;set;}
+    public DateTime? MembershipExpires {get;set;}
+    public string MemberStatus {get;set;} = "not set";
+    public string MemberSubStatus {get;set;} = "not set";
     public string Email {get;set;} = "not set";
     public string Phone {get;set;} = "not set";
     public string Mobile {get;set;} = "not set";
@@ -175,18 +175,18 @@ public class Member
     public bool HideOnWebsite {get;set;}
     public bool HideContactInformation {get;set;}
     public bool UnsubscribeFromEmails {get;set;}
-    public int QuickBooksID {get;}
-    public Guid PrimaryContactUniqueId {get;set;}
-    public Guid BillingContactUniqueId {get;set;}
+    public string QuickBooksID {get;set;}
+    public Guid? PrimaryContactUniqueId {get;set;}
+    public Guid? BillingContactUniqueId {get;set;}
 
     [MaxLength(255)]
     public string Credentials {get;set;} = "not set";
-    public List<object> DirectoryGallery  {get;} = new List<object>();
-    public List<object> Awards {get;} = new List<object>();
-    public List<string> VolunteerWorks  {get;} = new List<string>();
-    public List<object> Education {get;} = new List<object>();
-    public List<object>? Groups {get;} = new List<object>();
-    public DateTime? CreatedDate  {get;}
-    public DateTime? LastUpdatedDate  {get;}
+    public List<object> DirectoryGallery  {get;set;} = new List<object>();
+    public List<object> Awards {get;set;} = new List<object>();
+    public List<string> VolunteerWorks  {get;set;} = new List<string>();
+    public List<object> Education {get;set;} = new List<object>();
+    public List<object>? Groups {get;set;} = new List<object>();
+    public DateTime? CreatedDate  {get;set;}
+    public DateTime? LastUpdatedDate  {get;set;}
 
 }

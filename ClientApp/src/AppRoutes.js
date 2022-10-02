@@ -1,6 +1,7 @@
 import { Home } from "./components/Home";
-import { Members } from "./components/Members";
+import { MemberList } from "./components/MemberList";
 import { MemberTypes } from "./components/MemberTypes";
+import { MemberDetails } from "./components/MemberDetails";
 
 const AppRoutes = [
   {
@@ -8,8 +9,12 @@ const AppRoutes = [
     element: <Home />
   },
   {
+    path: '/render-details',
+    element: <MemberDetails />  
+  },
+  {
     path: '/fetch-members',
-    element: <Members />  
+    element: <MemberList />  
   },
   {
     path: '/fetch-member-types',

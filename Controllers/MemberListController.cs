@@ -8,13 +8,13 @@ namespace novi_ams.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class MembersController : ControllerBase
+public class MemberListController : ControllerBase
 {
     private readonly HttpClient _client;
 
-    private readonly ILogger<MembersController> _logger;
+    private readonly ILogger<MemberListController> _logger;
 
-    public MembersController(ILogger<MembersController> logger)
+    public MemberListController(ILogger<MemberListController> logger)
     {
         _logger = logger;
         _client = new HttpClient();
@@ -24,7 +24,7 @@ public class MembersController : ControllerBase
     public async Task<IActionResult> Get()
     {
         JayLogger.PrintInBlue("~~~ Getting members ~~~");
-        var getUrl = "https://180930b.novitesting.com/api/members?pageSize=100&offset=0&lastModifiedDate=1/1/2020&name&parentName&email";
+        var getUrl = "https://180930b.novitesting.com/api/members?pageSize=100&offset=0";
         
         var header = new AuthenticationHeaderValue("Basic", "oNiPIWDjyGSkvLuxwHTzbXgBg2woNoW2TjU/tJs0E7U=");
         _client.DefaultRequestHeaders.Authorization = header;

@@ -22,10 +22,10 @@ export class MemberTypes extends Component {
           </tr>
         </thead>
         <tbody>
-          {memberTypesResponse.results.map(forecast =>
-            <tr key={forecast.name}>
-              <td>{forecast.name}</td>
-              <td dangerouslySetInnerHTML={ { __html: forecast.description } } ></td>                            
+          {memberTypesResponse.results.map(memberType =>
+            <tr key={memberType.name}>
+              <td>{memberType.name}</td>
+              <td dangerouslySetInnerHTML={ { __html: memberType.description } } ></td>                            
             </tr>
           )}
         </tbody>

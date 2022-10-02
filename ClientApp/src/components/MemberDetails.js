@@ -1,33 +1,32 @@
 import React, { Component } from 'react';
 
-export class Members extends Component {
-  static displayName = Members.name;
+export class MemberDetails extends Component {
+  static displayName = MemberDetails.name;
 
   constructor(props) {
     super(props);
-    this.state = { MembersResponse: [], loading: true };
+    this.state = { MemberDetails: [], loading: true, renderMembersDetails: Function };
   }
 
   componentDidMount() {
-    this.populateMembers();
+    console.log("details mounted")
+    this.renderMembersDetails(this.state.MemberDetails);
   }
 
-  static renderMembersTable(MembersResponse) {
+  static renderMembersDetails(MemberDetails) {
     return (
       <table className='table table-striped' aria-labelledby="tabelLabel">
         <thead>
           <tr>
             <th>Name</th>
-            <th>Description</th>
+            <th>Title</th>
           </tr>
         </thead>
-        <tbody>
-          {MembersResponse.results.map(forecast =>
-            <tr key={forecast.name}>
-              <td>{forecast.name}</td>
-              <td dangerouslySetInnerHTML={ { __html: forecast.description } } ></td>                            
-            </tr>
-          )}
+        <tbody>          
+            <tr key={MemberDetails.name}>
+              <td>{MemberDetails.name}</td>
+              <td>{MemberDetails.title}</td>              
+            </tr>          
         </tbody>
       </table>
     );
@@ -36,28 +35,14 @@ export class Members extends Component {
   render() {
     let contents = this.state.loading
       ? <p><em>Loading...</em></p>
-      : Members.renderMembersTable(this.state.MembersResponse);
+      : MemberDetails.renderMembersDetails(this.state.MembersResponse);
 
     return (
       <div>
-        <h1 id="tabelLabel" >Members</h1>
-        <p>This component demonstrates fetching a collection of members.</p>
+        <h1 id="tabelLabel" >Member Details</h1>
+        <p>This component demonstrates displaying details of a member.</p>
         <div>{contents}</div>
       </div>
     );
-  }
-
-  async populateMembers() {
-    const response = await fetch('members');
-    const data = await response.json();
-
-    const thisState = this.state;
-
-    console.log("this is the state")
-    console.log(thisState)
-    
-    this.setState({ MembersResponse: data, loading: false });
-    
-    console.log(this.state)
   }
 }
