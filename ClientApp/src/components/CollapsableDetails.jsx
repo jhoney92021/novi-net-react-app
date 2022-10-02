@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {Button, Collapse} from 'react-bootstrap'
+import CollapsableAddress from './CollapsableAddress';
 
 class CollapsableDetails extends Component{
 
@@ -7,6 +8,20 @@ class CollapsableDetails extends Component{
         super(props);
         this.state = { details: props, open: false };
       }
+
+
+      static addressIsNotNullOrEmpty(address)
+      {
+        if(address !== null && address !== undefined)
+        {
+            if(address.address1 !== null && address.address1 !== undefined)
+            {
+                return true;
+            }
+        }
+        return false;
+      }
+
 
     render(){
       return(
@@ -24,8 +39,14 @@ class CollapsableDetails extends Component{
                   {this.state.details.props.memberProfile &&
                     <p><b>Member Profile</b>: {this.state.details.props.memberProfile}</p>
                   }
-                  {this.state.details.props.billingAddress &&
-                    <p><b>Billing Address</b>: {this.state.details.props.billingAddress.address1}</p>
+                  {CollapsableDetails.addressIsNotNullOrEmpty(this.state.details.props.billingAddress) &&
+                    <p><b>Billing Address</b>: <CollapsableAddress props={this.state.details.props.billingAddress}></CollapsableAddress></p>
+                  }
+                  {CollapsableDetails.addressIsNotNullOrEmpty(this.state.details.props.shippingAddress) &&
+                    <p><b>Shipping Address</b>: <CollapsableAddress props={this.state.details.props.shippingAddress}></CollapsableAddress></p>
+                  }
+                  {CollapsableDetails.addressIsNotNullOrEmpty(this.state.details.props.personalAddress) &&
+                    <p><b>Personal Address</b>: <CollapsableAddress props={this.state.details.props.personalAddress}></CollapsableAddress></p>
                   }
                   {this.state.details.props.quickBooksID &&
                     <p><b>QuickBooksID</b>: {this.state.details.props.quickBooksID}</p>
