@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { MemberDetails } from "./MemberDetails";
+import CollapsableDetails from "./CollapsableDetails"
 
 export class MemberList extends Component {
   static displayName = "MemberList";
@@ -15,11 +16,22 @@ export class MemberList extends Component {
 
   static renderMembersTable(MemberListResponse) {
     return (
-      <ul>
-          {MemberListResponse.results.map(member =>              
-            <MemberDetails key={member.name} props={member}></MemberDetails>
-          )}     
-      </ul>
+      <table className='table table-striped' aria-labelledby="tabelLabel">
+        <thead>
+          <tr>
+            <th>Member Name</th>            
+            <th>More Info</th>
+          </tr>
+        </thead>
+        <tbody>
+          {MemberListResponse.results.map(member =>
+            <tr key={member.name}>
+              <td style={{fontFamily:"Helvetica", textAlign:"left", verticalAlign:"middle"}} >{member.name}</td>              
+              <CollapsableDetails props={member} ></CollapsableDetails>                    
+            </tr>
+          )}
+        </tbody>
+      </table>
     );
   }
 
@@ -39,15 +51,7 @@ export class MemberList extends Component {
 
   async populateMembers() {
     const response = await fetch('memberList');
-    const data = await response.json();
-
-    const thisState = this.state;
-
-    console.log("this is the state")
-    console.log(thisState)
-    
-    this.setState({ MemberListResponse: data, loading: false });
-    
-    console.log(this.state)
+    const data = await response.json();    
+    this.setState({ MemberListResponse: data, loading: false });    
   }
 }
