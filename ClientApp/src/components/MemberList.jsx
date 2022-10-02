@@ -1,9 +1,8 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import { MemberDetails } from "./MemberDetails";
 
 export class MemberList extends Component {
   static displayName = "MemberList";
-  
 
   constructor(props) {
     super(props);
@@ -16,26 +15,11 @@ export class MemberList extends Component {
 
   static renderMembersTable(MemberListResponse) {
     return (
-      <table className='table table-striped' aria-labelledby="tabelLabel">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          {MemberListResponse.results.map(member =>
-            <tr key={member.name}>
-              <td onClick={() => { 
-                console.log(`~~~ CLICKED ${member} ~~~`)
-                let details = new MemberDetails(member);
-                // details.renderMemeberDetails(member);
-                }}>{member.name}</td>
-              <td>{member.memberStatus}</td>                            
-            </tr>
-          )}
-        </tbody>
-      </table>
+      <ul>
+          {MemberListResponse.results.map(member =>              
+            <MemberDetails key={member.name} props={member}></MemberDetails>
+          )}     
+      </ul>
     );
   }
 
