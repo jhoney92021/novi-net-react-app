@@ -6,5 +6,5 @@ namespace novi_ams.NoviResponses;
 public class MemberTypeResponse
 {
     public int TotalCount {get;set;}
-    public List<MemberTypeViewModel> Results {get;set;} = new List<MemberTypeViewModel>(){new MemberTypeViewModel{Name = "failed to serialize"}};
+    public List<MemberType> Results {get;set;} = new List<MemberType>(){new MemberType{Name = "failed to serialize"}};
 }

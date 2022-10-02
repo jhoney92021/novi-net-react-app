@@ -24,7 +24,7 @@ namespace novi_ams.ViewModels;
 //     public List<MemberTypeViewModel> Results {get;set;} = new List<MemberTypeViewModel>(){new MemberTypeViewModel{Name = "failed to serialize"}};
 // }
 
-public class MemberTypeViewModel
+public class MemberType
 {
     public Guid UniqueID {get;set;}
     public string Name {get;set;} = "default";

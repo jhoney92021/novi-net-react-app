@@ -24,7 +24,7 @@ public class MembersController : ControllerBase
     public async Task<IActionResult> Get()
     {
         JayLogger.PrintInBlue("~~~ Getting members ~~~");
-        var getUrl = "https://180930b.novitesting.com/api/member-types";
+        var getUrl = "https://180930b.novitesting.com/api/members?pageSize=100&offset=0&lastModifiedDate=1/1/2020&name&parentName&email";
         
         var header = new AuthenticationHeaderValue("Basic", "oNiPIWDjyGSkvLuxwHTzbXgBg2woNoW2TjU/tJs0E7U=");
         _client.DefaultRequestHeaders.Authorization = header;

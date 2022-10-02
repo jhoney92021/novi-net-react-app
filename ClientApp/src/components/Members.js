@@ -18,14 +18,14 @@ export class Members extends Component {
         <thead>
           <tr>
             <th>Name</th>
-            <th>Description</th>
+            <th>Statu</th>
           </tr>
         </thead>
         <tbody>
           {MembersResponse.results.map(forecast =>
             <tr key={forecast.name}>
               <td>{forecast.name}</td>
-              <td dangerouslySetInnerHTML={ { __html: forecast.description } } ></td>                            
+              <td>{forecast.memberstatus}</td>                            
             </tr>
           )}
         </tbody>
