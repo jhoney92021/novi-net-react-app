@@ -34,15 +34,9 @@ class AddressSection extends Component{
     render(){
       return(
         <div key={this.state.details.name} className= "container">
-        <ul><b>Known Addresses    </b>
-           <Button className="btn" onClick={()=>{this.setState({open: !this.state.open })}}>
-               ...
-           </Button>
-        </ul>
-
+            <b>Known Addresses    </b>
            <Collapse in={this.state.open}>
                <div>
-
                   {AddressSection.addressIsNotNullOrEmpty(this.state.details.props.billingAddress) &&
                     <li>
                       <b>Billing Address</b>: 
@@ -63,6 +57,18 @@ class AddressSection extends Component{
                   }
                </div>
            </Collapse>
+           <Button className="btn" variant="secondary" size='sm' onClick={()=>{this.setState({open: !this.state.open })}}>
+            {this.state.open &&
+            <span>
+                ^
+            </span> 
+            }
+            {!this.state.open &&
+            <span>
+                ...
+            </span> 
+            }
+           </Button>
         </div>
         );
        }
