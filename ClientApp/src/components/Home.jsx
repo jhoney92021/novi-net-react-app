@@ -9,7 +9,7 @@ export class Home extends Component {
     return (
       <div>
         <h1>Hello, novi!</h1>
-        <p>Welcome to your new Assocaiation Management :</p>
+        <p>Welcome to your new Association Management :</p>
         <ul>
           <li>
             <strong>What sort of member are you?</strong>
