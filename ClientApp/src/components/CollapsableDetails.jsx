@@ -4,6 +4,7 @@ import CollapsableAddressSection  from "./CollapsableAddressSection"
 import MemberType from './CollapsableMemberType';
 import CollapsablePhoneSection from './CollapsablePhoneSection';
 import CollapsableEmailSection from './CollapsableEmailSection';
+import {removeTimePart} from "./Helpers/DateTimeHelpers";
 
 class CollapsableDetails extends Component{
 
@@ -11,25 +12,6 @@ class CollapsableDetails extends Component{
         super(props);
         this.state = { details: props, open: false };
       }
-
-      static removeTimePart(dateString)
-      {
-        const parsed = dateString.split("T");
-        return parsed[0];
-      }
-
-      static addressIsNotNullOrEmpty(address)
-      {
-        if(address !== null && address !== undefined)
-        {
-            if(address.address1 !== null && address.address1 !== undefined)
-            {
-                return true;
-            }
-        }
-        return false;
-      }
-
 
     render(){
       return(
@@ -79,13 +61,13 @@ class CollapsableDetails extends Component{
                         <p><b>Customer Type</b>: {this.state.details.props.customerType}</p>
                     }
                     {this.state.details.props.memberSince &&
-                        <p><b>Member Since</b>: {CollapsableDetails.removeTimePart(this.state.details.props.memberSince)}</p>
+                        <p><b>Member Since</b>: {removeTimePart(this.state.details.props.memberSince)}</p>
                     }
                     {this.state.details.props.membershipExpires &&
-                        <p><b>Membership Expiration Date</b>: {CollapsableDetails.removeTimePart(this.state.details.props.membershipExpires)}</p>
+                        <p><b>Membership Expiration Date</b>: {removeTimePart(this.state.details.props.membershipExpires)}</p>
                     }
                     {this.state.details.props.originalJoinDate &&
-                        <p><b>Original Join Date</b>: {CollapsableDetails.removeTimePart(this.state.details.props.originalJoinDate)}</p>
+                        <p><b>Original Join Date</b>: {removeTimePart(this.state.details.props.originalJoinDate)}</p>
                     }
                     {MemberType.memberTypeIsNotNullOrEmpty(this.state.details.props.memberType) &&
                         <p>
