@@ -11,7 +11,7 @@ class CollapsablePhoneSection extends Component{
 
       static numberIsNotNullOrEmpty(phoneNumber)
       {
-        if(phoneNumber !== null && phoneNumber !== undefined)
+        if(phoneNumber !== null && phoneNumber !== undefined && phoneNumber !== "")
         {
           return true;            
         }
