@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { MemberDetails } from "./MemberDetails";
 import CollapsableDetails from "./CollapsableDetails"
 
 export class MemberList extends Component {

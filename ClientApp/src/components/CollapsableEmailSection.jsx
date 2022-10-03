@@ -9,9 +9,9 @@ class CollapsableEmailSection extends Component{
       }
 
 
-      static emailIsNotNull(email)
+      static emailIsNotNullOrEmpty(email)
       {
-        if(email !== null && email !== undefined)
+        if(email !== null && email !== undefined && email !== "")
         {
           return true;            
         }
@@ -22,7 +22,7 @@ class CollapsableEmailSection extends Component{
       {        
         for(const email of emails)
         {
-          if(CollapsableEmailSection.emailIsNotNull(email)){return true;}
+          if(CollapsableEmailSection.emailIsNotNullOrEmpty(email)){return true;}
         }
         return false;
       }
@@ -32,12 +32,12 @@ class CollapsableEmailSection extends Component{
         <div key={this.state.details.name} className= "container">
            <Collapse in={this.state.open}>
                <div>
-                  {CollapsableEmailSection.emailIsNotNull(this.state.details.props.email) &&
+                  {CollapsableEmailSection.emailIsNotNullOrEmpty(this.state.details.props.email) &&
                     <li>
                       <b>Email</b>: {this.state.details.props.email}                      
                     </li>
                   }
-                  {CollapsableEmailSection.emailIsNotNull(this.state.details.props.personalEmail) &&
+                  {CollapsableEmailSection.emailIsNotNullOrEmpty(this.state.details.props.personalEmail) &&
                     <li>
                       <b>Personal Email</b>: {this.state.details.props.personalEmail}  
                     </li>

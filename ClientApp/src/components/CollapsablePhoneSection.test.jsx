@@ -1,5 +1,7 @@
 import CollapsablePhoneSection from "./CollapsablePhoneSection";
 
+const testNumber = "555-5555";
+
 describe("validates numbers are not null, undefined, or empty", () => {
     it("is null", async () => {
       const result = CollapsablePhoneSection.numberIsNotNullOrEmpty(null);
@@ -14,7 +16,7 @@ describe("validates numbers are not null, undefined, or empty", () => {
       expect(result).toBe(false);
     });
     it("is good", async () => {
-      const result = CollapsablePhoneSection.numberIsNotNullOrEmpty("555-5555");
+      const result = CollapsablePhoneSection.numberIsNotNullOrEmpty(testNumber);
       expect(result).toBe(true);
     });
 });
@@ -33,15 +35,15 @@ describe("validates array has phone numbers", () => {
       expect(result).toBe(false);
     });
     it("is good - all numbers", async () => {
-      const result = CollapsablePhoneSection.hasAnyKnownPhoneNumbers(["555-5555","555-5555","555-5555"]);
+      const result = CollapsablePhoneSection.hasAnyKnownPhoneNumbers([testNumber,testNumber,testNumber]);
       expect(result).toBe(true);
     });
     it("is good - two", async () => {
-      const result = CollapsablePhoneSection.hasAnyKnownPhoneNumbers(["555-5555",null,""]);
+      const result = CollapsablePhoneSection.hasAnyKnownPhoneNumbers([testNumber,null,""]);
       expect(result).toBe(true);
     });
     it("is good - one", async () => {
-      const result = CollapsablePhoneSection.hasAnyKnownPhoneNumbers(["555-5555",undefined,undefined]);
+      const result = CollapsablePhoneSection.hasAnyKnownPhoneNumbers([testNumber,undefined,undefined]);
       expect(result).toBe(true);
     });
 });
