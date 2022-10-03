@@ -50,14 +50,6 @@ export class MemberTypes extends Component {
   async populateMemberTypes() {
     const response = await fetch('memberTypes');
     const data = await response.json();
-
-    const thisState = this.state;
-
-    console.log("this is the state")
-    console.log(thisState)
-    
-    this.setState({ memberTypesResponse: data, loading: false });
-    
-    console.log(this.state)
+    this.setState({ memberTypesResponse: data, loading: false });    
   }
 }

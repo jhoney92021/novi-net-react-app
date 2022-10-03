@@ -12,10 +12,6 @@ class CollapsableAddress extends Component{
       return(
         <div key={this.state.address.props.address1} className= "container">          
             <p><b>Primary</b>: {this.state.address.props.address1}</p>
-           <Button size="sm" className="btn" onClick={()=>{this.setState({open: !this.state.open })}}>
-               ...
-           </Button>
-
            <Collapse in={this.state.open}>
                <div>
                   {this.state.address.props.address2 &&
@@ -35,6 +31,19 @@ class CollapsableAddress extends Component{
                   }
                </div>
            </Collapse>
+
+           <Button size="sm" variant="info" className="btn" onClick={()=>{this.setState({open: !this.state.open })}}>
+           {this.state.open &&
+            <span>
+                ^
+            </span> 
+            }
+            {!this.state.open &&
+            <span>
+                ...
+            </span> 
+            }
+           </Button>
         </div>
         );
        }

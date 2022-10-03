@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {Button, Collapse} from 'react-bootstrap'
 import CollapsableAddress from './CollapsableAddress';
 import AddressSection  from "./AddressSection"
+import MemberType from './MemberType';
 
 class CollapsableDetails extends Component{
 
@@ -27,13 +28,8 @@ class CollapsableDetails extends Component{
     render(){
       return(
         <div key={this.state.details.name} className= "container">
-           <Button className="btn" onClick={()=>{this.setState({open: !this.state.open })}}>
-               More Info
-           </Button>
-
            <Collapse in={this.state.open}>
-               <div>
-                  <p><b>Member Name</b>: {this.state.details.props.name}</p>
+               <div>                  
                   {this.state.details.props.email &&
                     <p><b>Email</b>: {this.state.details.props.email}</p>
                   }
@@ -48,6 +44,9 @@ class CollapsableDetails extends Component{
                   }
                   {this.state.details.props.customerType &&
                     <p><b>Customer Type</b>: {this.state.details.props.customerType}</p>
+                  }
+                  {MemberType.memberTypeIsNotNullOrEmpty(this.state.details.props.memberType) &&
+                    <MemberType props={this.state.details.props.memberType}></MemberType>
                   }
                   {this.state.details.props.active 
                     ? <p><b>Active</b>: <span style={{color:"green"}}>yes</span></p>
@@ -72,6 +71,18 @@ class CollapsableDetails extends Component{
                   }
                </div>
            </Collapse>
+           <Button className="btn" size='sm' onClick={()=>{this.setState({open: !this.state.open })}}>
+               {this.state.open &&
+                <span>
+                    ^
+                </span> 
+               }
+               {!this.state.open &&
+                <span>
+                    ...
+                </span> 
+               }
+           </Button>
         </div>
         );
        }
