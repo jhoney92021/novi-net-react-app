@@ -22,8 +22,7 @@ public class MemberListController : ControllerBase
 
     [HttpGet]
     public async Task<IActionResult> Get()
-    {
-        JayLogger.PrintInBlue("~~~ Getting members ~~~");
+    {        
         var getUrl = "https://180930b.novitesting.com/api/members";
         
         var header = new AuthenticationHeaderValue("Basic", "oNiPIWDjyGSkvLuxwHTzbXgBg2woNoW2TjU/tJs0E7U=");
