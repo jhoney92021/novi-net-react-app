@@ -34,7 +34,6 @@ class AddressSection extends Component{
     render(){
       return(
         <div key={this.state.details.name} className= "container">
-            <b>Known Addresses    </b>
            <Collapse in={this.state.open}>
                <div>
                   {AddressSection.addressIsNotNullOrEmpty(this.state.details.props.billingAddress) &&

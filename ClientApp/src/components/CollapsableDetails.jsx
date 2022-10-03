@@ -37,7 +37,10 @@ class CollapsableDetails extends Component{
                     <p><b>Member Profile</b>: {this.state.details.props.memberProfile}</p>
                   }
                   {AddressSection.hasAnyAddressKnown([this.state.details.props.billingAddress,this.state.details.props.shippingAddress,this.state.details.props.personalAddress]) &&
+                        <p>
+                        <b>Known Addresses</b>:
                         <AddressSection props={this.state.details.props}></AddressSection>
+                        </p>
                   }
                   {this.state.details.props.quickBooksID &&
                     <p><b>QuickBooksID</b>: {this.state.details.props.quickBooksID}</p>
@@ -46,7 +49,10 @@ class CollapsableDetails extends Component{
                     <p><b>Customer Type</b>: {this.state.details.props.customerType}</p>
                   }
                   {MemberType.memberTypeIsNotNullOrEmpty(this.state.details.props.memberType) &&
-                    <MemberType props={this.state.details.props.memberType}></MemberType>
+                      <p>
+                        <b>Member Type</b>: {this.state.details.props.memberType.name}
+                        <MemberType props={this.state.details.props.memberType}></MemberType>
+                      </p>
                   }
                   {this.state.details.props.active 
                     ? <p><b>Active</b>: <span style={{color:"green"}}>yes</span></p>
