@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {Button, Collapse} from 'react-bootstrap'
 
-class MemberType extends Component{
+class CollapsableMemberType extends Component{
 
     constructor(props) {
         super(props);
@@ -46,4 +46,4 @@ class MemberType extends Component{
        }
 }
 
-export default MemberType
+export default CollapsableMemberType

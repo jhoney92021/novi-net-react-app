@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {Button, Collapse} from 'react-bootstrap'
 import CollapsableAddress from './CollapsableAddress';
 
-class AddressSection extends Component{
+class CollapsableAddressSection extends Component{
 
     constructor(props) {
         super(props);
@@ -26,7 +26,7 @@ class AddressSection extends Component{
       {        
         for(const address of addresses)
         {
-          if(AddressSection.addressIsNotNullOrEmpty(address)){return true;}
+          if(CollapsableAddressSection.addressIsNotNullOrEmpty(address)){return true;}
         }
         return false;
       }
@@ -36,19 +36,19 @@ class AddressSection extends Component{
         <div key={this.state.details.name} className= "container">
            <Collapse in={this.state.open}>
                <div>
-                  {AddressSection.addressIsNotNullOrEmpty(this.state.details.props.billingAddress) &&
+                  {CollapsableAddressSection.addressIsNotNullOrEmpty(this.state.details.props.billingAddress) &&
                     <li>
                       <b>Billing Address</b>: 
                       <ul> <CollapsableAddress props={this.state.details.props.billingAddress}></CollapsableAddress> </ul>
                     </li>
                   }
-                  {AddressSection.addressIsNotNullOrEmpty(this.state.details.props.shippingAddress) &&
+                  {CollapsableAddressSection.addressIsNotNullOrEmpty(this.state.details.props.shippingAddress) &&
                     <li>
                       <b>Shipping Address</b>: 
                       <ul><CollapsableAddress props={this.state.details.props.shippingAddress}></CollapsableAddress></ul>
                     </li>
                   }
-                  {AddressSection.addressIsNotNullOrEmpty(this.state.details.props.personalAddress) &&
+                  {CollapsableAddressSection.addressIsNotNullOrEmpty(this.state.details.props.personalAddress) &&
                     <li>
                       <b>Personal Address</b>: 
                       <ul><CollapsableAddress props={this.state.details.props.personalAddress}></CollapsableAddress></ul>
@@ -73,4 +73,4 @@ class AddressSection extends Component{
        }
 }
 
-export default AddressSection
+export default CollapsableAddressSection

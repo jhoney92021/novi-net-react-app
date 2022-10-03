@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import {Button, Collapse} from 'react-bootstrap'
-import CollapsableAddress from './CollapsableAddress';
-import AddressSection  from "./AddressSection"
-import MemberType from './MemberType';
+import CollapsableAddressSection  from "./CollapsableAddressSection"
+import MemberType from './CollapsableMemberType';
+import CollapsablePhoneSection from './CollapsablePhoneSection';
 
 class CollapsableDetails extends Component{
 
@@ -36,10 +36,16 @@ class CollapsableDetails extends Component{
                   {this.state.details.props.memberProfile &&
                     <p><b>Member Profile</b>: {this.state.details.props.memberProfile}</p>
                   }
-                  {AddressSection.hasAnyAddressKnown([this.state.details.props.billingAddress,this.state.details.props.shippingAddress,this.state.details.props.personalAddress]) &&
+                  {CollapsablePhoneSection.hasAnyKnownPhoneNumbers([this.state.details.props.phone,this.state.details.props.mobile,this.state.details.props.personalPhone,this.state.details.props.personalMobile]) &&
+                        <p>
+                        <b>Known Phone Numbers</b>:
+                        <CollapsablePhoneSection props={this.state.details.props}></CollapsablePhoneSection>
+                        </p>
+                  }
+                  {CollapsableAddressSection.hasAnyAddressKnown([this.state.details.props.billingAddress,this.state.details.props.shippingAddress,this.state.details.props.personalAddress]) &&
                         <p>
                         <b>Known Addresses</b>:
-                        <AddressSection props={this.state.details.props}></AddressSection>
+                        <CollapsableAddressSection props={this.state.details.props}></CollapsableAddressSection>
                         </p>
                   }
                   {this.state.details.props.quickBooksID &&
