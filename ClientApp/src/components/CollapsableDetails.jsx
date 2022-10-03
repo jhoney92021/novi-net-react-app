@@ -3,6 +3,7 @@ import {Button, Collapse} from 'react-bootstrap'
 import CollapsableAddressSection  from "./CollapsableAddressSection"
 import MemberType from './CollapsableMemberType';
 import CollapsablePhoneSection from './CollapsablePhoneSection';
+import CollapsableEmailSection from './CollapsableEmailSection';
 
 class CollapsableDetails extends Component{
 
@@ -30,23 +31,26 @@ class CollapsableDetails extends Component{
         <div key={this.state.details.name} className= "container">
            <Collapse in={this.state.open}>
                <div>                  
-                  {this.state.details.props.email &&
-                    <p><b>Email</b>: {this.state.details.props.email}</p>
+                  { CollapsableEmailSection.hasAnyKnownEmails([this.state.details.props.email,this.state.details.props.personalEmail]) &&
+                    <p>
+                    <b>Known Email Addresses</b>:
+                    <CollapsableEmailSection props={this.state.details.props}></CollapsableEmailSection>
+                    </p>                    
                   }
                   {this.state.details.props.memberProfile &&
                     <p><b>Member Profile</b>: {this.state.details.props.memberProfile}</p>
                   }
-                  {CollapsablePhoneSection.hasAnyKnownPhoneNumbers([this.state.details.props.phone,this.state.details.props.mobile,this.state.details.props.personalPhone,this.state.details.props.personalMobile]) &&
-                        <p>
-                        <b>Known Phone Numbers</b>:
-                        <CollapsablePhoneSection props={this.state.details.props}></CollapsablePhoneSection>
-                        </p>
+                  {CollapsablePhoneSection.hasAnyKnownPhoneNumbers([this.state.details.props.phone,this.state.details.props.mobile,this.state.details.props.personalPhone,this.state.details.props.personalMobile,this.state.details.props.fax]) &&
+                    <p>
+                    <b>Known Phone Numbers</b>:
+                    <CollapsablePhoneSection props={this.state.details.props}></CollapsablePhoneSection>
+                    </p>
                   }
                   {CollapsableAddressSection.hasAnyAddressKnown([this.state.details.props.billingAddress,this.state.details.props.shippingAddress,this.state.details.props.personalAddress]) &&
-                        <p>
-                        <b>Known Addresses</b>:
-                        <CollapsableAddressSection props={this.state.details.props}></CollapsableAddressSection>
-                        </p>
+                    <p>
+                    <b>Known Addresses</b>:
+                    <CollapsableAddressSection props={this.state.details.props}></CollapsableAddressSection>
+                    </p>
                   }
                   {this.state.details.props.quickBooksID &&
                     <p><b>QuickBooksID</b>: {this.state.details.props.quickBooksID}</p>
@@ -55,10 +59,10 @@ class CollapsableDetails extends Component{
                     <p><b>Customer Type</b>: {this.state.details.props.customerType}</p>
                   }
                   {MemberType.memberTypeIsNotNullOrEmpty(this.state.details.props.memberType) &&
-                      <p>
-                        <b>Member Type</b>: {this.state.details.props.memberType.name}
-                        <MemberType props={this.state.details.props.memberType}></MemberType>
-                      </p>
+                    <p>
+                    <b>Member Type</b>: {this.state.details.props.memberType.name}
+                    <MemberType props={this.state.details.props.memberType}></MemberType>
+                    </p>
                   }
                   {this.state.details.props.active 
                     ? <p><b>Active</b>: <span style={{color:"green"}}>yes</span></p>

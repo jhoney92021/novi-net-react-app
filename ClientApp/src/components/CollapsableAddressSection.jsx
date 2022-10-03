@@ -6,7 +6,7 @@ class CollapsableAddressSection extends Component{
 
     constructor(props) {
         super(props);
-        this.state = { details: props, open: false, phoneNumbers: [] };
+        this.state = { details: props, open: false };
       }
 
 

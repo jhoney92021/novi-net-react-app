@@ -5,7 +5,7 @@ class CollapsablePhoneSection extends Component{
 
     constructor(props) {
         super(props);
-        this.state = { details: props, open: false, phoneNumbers: [] };
+        this.state = { details: props, open: false };
       }
 
 
@@ -50,6 +50,11 @@ class CollapsablePhoneSection extends Component{
                   {CollapsablePhoneSection.numberIsNotNullOrEmpty(this.state.details.props.personalMobile) &&
                     <li>
                       <b>Personal Mobile</b>: {this.state.details.props.personalMobile}  
+                    </li>
+                  }
+                  {CollapsablePhoneSection.numberIsNotNullOrEmpty(this.state.details.props.fax) &&
+                    <li>
+                      <b>Fax</b>: {this.state.details.props.fax}  
                     </li>
                   }
                </div>
