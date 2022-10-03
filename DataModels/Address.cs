@@ -2,15 +2,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace novi_ams.DataModels;
 
-/*
-                "Address1": null,
-                "Address2": null,
-                "City": null,
-                "ZipCode": null,
-                "StateProvince": null,
-                "Country": null
-*/
-
 public abstract class Address
 {
     [MaxLength(255)]
