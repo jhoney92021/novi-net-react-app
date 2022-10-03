@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Collapse, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
-import {Button} from 'react-bootstrap'
+import { NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 export class Home extends Component {
