@@ -12,7 +12,7 @@ class CollapsableMemberType extends Component{
       {
         if(memberType !== null && memberType !== undefined)
         {
-            if(memberType.name !== null && memberType.name !== undefined)
+            if(memberType.name !== null && memberType.name !== undefined && memberType.name !== "")
             {
                 return true;
             }

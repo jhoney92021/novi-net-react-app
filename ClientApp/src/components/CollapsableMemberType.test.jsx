@@ -7,6 +7,21 @@ const testMemberType = {
   "forCompanies": true
 }
 
+const missingName = {
+  ...testMemberType,
+  "name":""
+}
+
+const missingNameNull = {
+  ...testMemberType,
+  "name":null
+}
+
+const missingNameUndefined = {
+  ...testMemberType,
+  "name":undefined
+}
+
 describe("validates member type is not null, undefined, or empty", () => {
     it("is null", async () => {
       const result = CollapsableMemberType.memberTypeIsNotNullOrEmpty(null);
@@ -23,5 +38,17 @@ describe("validates member type is not null, undefined, or empty", () => {
     it("is good", async () => {
       const result = CollapsableMemberType.memberTypeIsNotNullOrEmpty(testMemberType);
       expect(result).toBe(true);
+    });
+    it("is bad name empty", async () => {
+      const result = CollapsableMemberType.memberTypeIsNotNullOrEmpty(missingName);
+      expect(result).toBe(false);
+    });
+    it("is bad name null", async () => {
+      const result = CollapsableMemberType.memberTypeIsNotNullOrEmpty(missingNameNull);
+      expect(result).toBe(false);
+    });
+    it("is bad name undefined", async () => {
+      const result = CollapsableMemberType.memberTypeIsNotNullOrEmpty(missingNameUndefined);
+      expect(result).toBe(false);
     });
 });

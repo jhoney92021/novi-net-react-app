@@ -63,7 +63,7 @@ class CollapsableDetails extends Component{
                         <CollapsablePhoneSection props={this.state.details.props}></CollapsablePhoneSection>
                         </p>
                     }
-                    {CollapsableAddressSection.hasAnyAddressKnown([this.state.details.props.billingAddress,this.state.details.props.shippingAddress,this.state.details.props.personalAddress]) &&
+                    {CollapsableAddressSection.hasAnyKnownAddress([this.state.details.props.billingAddress,this.state.details.props.shippingAddress,this.state.details.props.personalAddress]) &&
                         <p>
                         <b>Known Addresses</b>:
                         <CollapsableAddressSection props={this.state.details.props}></CollapsableAddressSection>

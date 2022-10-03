@@ -12,9 +12,9 @@ class CollapsableAddressSection extends Component{
 
       static addressIsNotNullOrEmpty(address)
       {
-        if(address !== null && address !== undefined)
+        if(address !== null && address !== undefined && address !== "")
         {
-            if(address.address1 !== null && address.address1 !== undefined)
+            if(address.address1 !== null && address.address1 !== undefined && address.address1 !== "")
             {
                 return true;
             }
@@ -22,7 +22,7 @@ class CollapsableAddressSection extends Component{
         return false;
       }
 
-      static hasAnyAddressKnown(addresses)
+      static hasAnyKnownAddress(addresses)
       {        
         for(const address of addresses)
         {
